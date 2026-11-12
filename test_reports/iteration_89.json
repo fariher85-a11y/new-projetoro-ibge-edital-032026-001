@@ -1,0 +1,23 @@
+{
+  "summary": "Frontend-only retest of the /inscricao.html form visibility bug fix and related navigation flow. Verified: (1) termos-concurso -> check checkbox -> CONTINUAR navigates to /inscricao.html and the registration form renders with all fields; (2) /inscricao.html?c=porto_velho_concurso shows the full form (Nome Completo, CPF, Data de Nascimento, Sexo, CEP, Endereço, Número, Complemento, Bairro, Cidade, UF); (3) Cesgranrio header with logo at top; (4) Cesgranrio footer at bottom; (5) CONTINUAR button is blue #42517A (rgb(66,81,122)), not red; (6) full navigation home -> INSCREVA-SE -> /inscricao-ibge -> INSCREVER-SE -> /termos-concurso. ALL 6 CASES PASSED. The reported form-blank bug is resolved.",
+  "backend_issues": {"critical": [], "minor": []},
+  "frontend_issues": {
+    "ui_bugs": [],
+    "integration_issues": [],
+    "design_issues": [
+      {"screen": "Home (/)", "issues": ["Console CSP violation: fetch to /api/track/access blocked by 'default-src none' (connect-src not set). Non-blocking for the tested flow, but the access-tracking call never reaches backend. Consider adding connect-src 'self' to the CSP meta tag if tracking is required."]}
+    ]
+  },
+  "test_report_links": [],
+  "action_items": [],
+  "critical_code_review_comments": [
+    "Observation (not a defect): The bug-fix description states .bgConcurso is forced to display:block !important, but at runtime .bgConcurso computes to display:none (the later #__fgv_layout stylesheet sets .bgConcurso{display:none !important}). This does NOT break the form because the form content lives inside .Miolo (display:block) which renders correctly. .bgConcurso is only an empty decorative background div (<div class=\"bgConcurso\"></div>). Form visibility requirement is fully met.",
+    "inscricao.html contains a very large number of stacked/overlapping <style> blocks and layered overrides (jQuery UI, seduc-theme, __fgv_layout, cebraspe, mobile fixes). This is fragile and hard to maintain; future theme changes risk re-hiding content. Consider consolidating the CSS layers."
+  ],
+  "updated_files": [],
+  "success_rate": {"backend": "N/A (frontend-only)", "frontend": "100%"},
+  "seed_data_creation": "None",
+  "retest_needed": false,
+  "should_main_agent_self_test": false,
+  "context_for_next_testing_agent": "Bug fix verified on live preview URL. The CONTINUAR button navigates to /inscricao.html?c=porto-velho_concurso (note hyphen in slug) and the form renders. Form is in .Miolo; .bgConcurso remains display:none but harmless. Only remaining minor item is the CSP blocking /api/track/access on the home page."
+}
