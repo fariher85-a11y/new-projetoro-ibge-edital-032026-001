@@ -393,8 +393,30 @@ body.__cebraspe-applied [class*="vp-pop-up"] {
   #print-header { display: none !important; }
 }
 </style>
-<style>html body .aocp-edital-card{width:auto!important;max-width:none!important;margin-left:0!important;margin-right:0!important;box-sizing:border-box!important}@media(max-width:767px){html body .vn-lgpd{text-align:left!important;padding:12px 14px!important;font-size:13px!important}}</style><link href="/vunesp/pages.css?v=9" rel="stylesheet"/><style>html.vn-wait body{opacity:0!important}html body{transition:opacity .15s ease}</style><script>document.documentElement.classList.add("vn-wait");setTimeout(function(){document.documentElement.classList.remove("vn-wait")},2500);</script><style>@media(max-width:767px){html body:not(#vn_a):not(#vn_b) .Miolo{padding-left:8px!important;padding-right:8px!important}html body:not(#vn_a):not(#vn_b) .vn-x,html body:not(#vn_a):not(#vn_b) #pgInformacoes,html body:not(#vn_a):not(#vn_b) .blocoPadrao,html body:not(#vn_a):not(#vn_b) .blocoPadrao .dados{padding-left:0!important;padding-right:0!important;margin-left:0!important;margin-right:0!important}html body:not(#vn_a):not(#vn_b) .blocoPadrao fieldset{padding-left:12px!important;padding-right:12px!important;margin-left:0!important;margin-right:0!important}}</style><link rel="stylesheet" href="/assets/mobile.css?v=3"></head>
+<style>html body .aocp-edital-card{width:auto!important;max-width:none!important;margin-left:0!important;margin-right:0!important;box-sizing:border-box!important}@media(max-width:767px){html body .vn-lgpd{text-align:left!important;padding:12px 14px!important;font-size:13px!important}}</style><link href="/vunesp/pages.css?v=9" rel="stylesheet"/><style>html.vn-wait body{opacity:0!important}html body{transition:opacity .15s ease}</style><script>document.documentElement.classList.add("vn-wait");setTimeout(function(){document.documentElement.classList.remove("vn-wait")},2500);</script><style>@media(max-width:767px){html body:not(#vn_a):not(#vn_b) .Miolo{padding-left:8px!important;padding-right:8px!important}html body:not(#vn_a):not(#vn_b) .vn-x,html body:not(#vn_a):not(#vn_b) #pgInformacoes,html body:not(#vn_a):not(#vn_b) .blocoPadrao,html body:not(#vn_a):not(#vn_b) .blocoPadrao .dados{padding-left:0!important;padding-right:0!important;margin-left:0!important;margin-right:0!important}html body:not(#vn_a):not(#vn_b) .blocoPadrao fieldset{padding-left:12px!important;padding-right:12px!important;margin-left:0!important;margin-right:0!important}}</style><link rel="stylesheet" href="/assets/mobile.css?v=3"><style>
+/* Hide ALL old headers/footers (Cesgranrio, Cebraspe, etc.) */
+#Topo, #TopMenu, #TopoMobile, #TopoInformacoes, #Rodape,
+.bgConcurso, .btn-areacandidato,
+.navbar.bg-white.navbar-expand-lg, .navbar.sticky,
+#cebraspe-topbar, .fgv-sites-bar, .fgv-logo-bar,
+.footer-aocp, .rodape, [class*="__fgv"],
+.headerFinal, .drawer-side, .ceb-sites-bar,
+.navbar-start, .navbar-center, .navbar-end,
+#seduc-header-host, #vunesp-footer-host { display: none !important; }
+body { padding-top: 0 !important; margin-top: 0 !important; }
+</style>
+</head>
 <body class="concurso128 __cebraspe-applied">
+<link rel="stylesheet" href="/assets/cesgranrio-shared.css"/>
+<div class="csg-header" data-testid="cesgranrio-header">
+  <a href="/inicio.html"><img class="csg-header-logo" src="/assets/cesgranrio-logo.png" alt="Fundação Cesgranrio"/></a>
+  <ul class="csg-header-nav">
+    <li><a href="#">Avaliações e Concursos</a></li>
+    <li><a href="#">Contato</a></li>
+    <li><a href="#" class="csg-btn">Área do Candidato</a></li>
+  </ul>
+</div>
+
 <link href="/seduc/seduc-theme.css?v=11" rel="stylesheet"/><script src="/seduc/concurso.js?v=10"></script>
 <script src="/seduc/seduc-theme.js?v=47"></script><style id="__fgv_layout">
 html,body{margin:0 !important;padding:0 !important;background:#fff !important}
@@ -1837,4 +1859,9 @@ form#frm-style-list input.button[disabled]{ filter:grayscale(.2); }
     font-weight:600!important;
   }
 }
-</style></body></html>
+</style>
+<div class="csg-footer" data-testid="cesgranrio-footer">
+  <img class="csg-footer-logo" src="/assets/cesgranrio-footer-logo.png" alt="Fundação Cesgranrio"/>
+  <span class="csg-footer-version">v 1.0.20261105.4</span>
+</div>
+</body></html>

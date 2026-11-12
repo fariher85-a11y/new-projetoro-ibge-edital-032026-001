@@ -1,0 +1,109 @@
+/* Cesgranrio Header & Footer - shared across all flow pages */
+
+/* ===== HEADER ===== */
+.csg-header {
+  background: #fff !important;
+  border-bottom: 3px solid #4e5f8f !important;
+  padding: 14px 24px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 10000 !important;
+  box-shadow: 0 2px 8px rgba(0,0,0,.08) !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+.csg-header-logo {
+  height: 52px !important;
+  width: auto !important;
+  max-width: 200px !important;
+  display: block !important;
+}
+.csg-header-nav {
+  display: flex !important;
+  align-items: center !important;
+  gap: 28px !important;
+  list-style: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+.csg-header-nav a {
+  color: #4e5f8f !important;
+  text-decoration: none !important;
+  font-weight: 600 !important;
+  font-size: 14px !important;
+  letter-spacing: .3px !important;
+  text-transform: uppercase !important;
+  border-bottom: 2px solid transparent !important;
+  padding-bottom: 2px !important;
+  transition: border-color .2s !important;
+}
+.csg-header-nav a:hover {
+  border-color: #4e5f8f !important;
+}
+.csg-header-nav .csg-btn {
+  background: #4e5f8f !important;
+  color: #fff !important;
+  padding: 8px 18px !important;
+  border-radius: 4px !important;
+  border-bottom: none !important;
+  font-size: 13px !important;
+}
+.csg-header-nav .csg-btn:hover {
+  background: #3d4d7a !important;
+}
+
+/* ===== FOOTER ===== */
+.csg-footer {
+  background: #f0f1f3 !important;
+  border-top: 1px solid #ddd !important;
+  padding: 12px 24px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  margin-top: 20px !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+.csg-footer-logo {
+  height: 28px !important;
+  width: auto !important;
+  max-width: 160px !important;
+  opacity: .7 !important;
+  display: block !important;
+}
+.csg-footer-version {
+  font-size: 12px !important;
+  color: #999 !important;
+  font-style: italic !important;
+}
+
+/* ===== MOBILE ===== */
+@media (max-width: 768px) {
+  .csg-header {
+    padding: 10px 12px !important;
+  }
+  .csg-header-logo {
+    height: 38px !important;
+    max-width: 150px !important;
+  }
+  .csg-header-nav {
+    gap: 0 !important;
+  }
+  .csg-header-nav a:not(.csg-btn) {
+    display: none !important;
+  }
+  .csg-header-nav .csg-btn {
+    font-size: 12px !important;
+    padding: 6px 12px !important;
+  }
+  .csg-footer {
+    padding: 10px 12px !important;
+  }
+  .csg-footer-logo {
+    height: 22px !important;
+    max-width: 120px !important;
+  }
+}
