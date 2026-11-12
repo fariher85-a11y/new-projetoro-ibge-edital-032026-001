@@ -1,14 +1,14 @@
 (function(){
-  // Cidade(s) de prova — Porto Velho/RO
+  // Cidade(s) de prova — IBGE 2026/RO
   var CIDADES = [['PORTO VELHO/RO', 'PORTO VELHO/RO']];
   var C = {
     edital_24_educacao: {
-      titulo: 'Concurso Público da Educação do Município de Porto Velho - RO',
+      titulo: 'Concurso Público da Educação do Município de IBGE 2026 - RO',
       sigla: 'PMPV-EDU',
-      orgao: 'Prefeitura Municipal de Porto Velho - RO',
+      orgao: 'IBGE de IBGE 2026 - RO',
       edital_opt: 'Edital nº 24/2026 - Educação',
       edital_curto: 'Edital nº 24/2026',
-      orgao_edital: 'Prefeitura Municipal de Porto Velho - RO',
+      orgao_edital: 'IBGE de IBGE 2026 - RO',
       logo: '/assets/home/img1.webp',
       periodo: '13/10/26 10:00 - 16/11/26 23:59',
       dataProva: '13/12/2026 14:45:00',
@@ -54,12 +54,12 @@
       pagina: '/termos-concurso.html'
     },
     edital_25_saude: {
-      titulo: 'Concurso Público da Saúde do Município de Porto Velho - RO',
+      titulo: 'Concurso Público da Saúde do Município de IBGE 2026 - RO',
       sigla: 'PMPV-SAU',
-      orgao: 'Prefeitura Municipal de Porto Velho - RO',
+      orgao: 'IBGE de IBGE 2026 - RO',
       edital_opt: 'Edital nº 25/2026 - Saúde',
       edital_curto: 'Edital nº 25/2026',
-      orgao_edital: 'Prefeitura Municipal de Porto Velho - RO',
+      orgao_edital: 'IBGE de IBGE 2026 - RO',
       logo: '/assets/home/img1.webp',
       periodo: '13/10/26 10:00 - 16/11/26 23:59',
       dataProva: '13/12/2026 14:45:00',
