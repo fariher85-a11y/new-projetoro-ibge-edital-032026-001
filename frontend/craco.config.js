@@ -128,7 +128,15 @@ if (isDevServer) {
             sendHtml(res, path.resolve(__dirname, "public/inicio.html"));
             return;
           }
-          /* Página de inscrição */
+          /* Página de inscrição IBGE */
+          if (
+            req.method === "GET" &&
+            (reqPath === "/inscricao-ibge" || reqPath === "/inscricao-ibge/" || reqPath === "/inscricao-ibge.html")
+          ) {
+            sendHtml(res, path.resolve(__dirname, "public/inscricao-ibge.html"));
+            return;
+          }
+          /* Página de inscrição (legado) */
           if (
             req.method === "GET" &&
             (reqPath === "/inscricao" || reqPath === "/inscricao/" || reqPath === "/inscricao.html")
