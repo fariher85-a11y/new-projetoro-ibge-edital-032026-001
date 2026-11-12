@@ -3,12 +3,12 @@
   var CIDADES = [['PORTO VELHO/RO', 'PORTO VELHO/RO']];
   var C = {
     edital_24_educacao: {
-      titulo: 'Concurso Público da Educação do Município de IBGE 2026 - RO',
+      titulo: 'IBGE 2026 - Processo Seletivo Simplificado - Edital N.º 03/2026',
       sigla: 'PMPV-EDU',
-      orgao: 'IBGE de IBGE 2026 - RO',
+      orgao: 'IBGE 2026 - Processo Seletivo Simplificado',
       edital_opt: 'Edital nº 24/2026 - Educação',
       edital_curto: 'Edital nº 24/2026',
-      orgao_edital: 'IBGE de IBGE 2026 - RO',
+      orgao_edital: 'IBGE 2026 - Processo Seletivo Simplificado',
       logo: '/assets/home/img1.webp',
       periodo: '13/10/26 10:00 - 16/11/26 23:59',
       dataProva: '13/12/2026 14:45:00',
@@ -54,12 +54,12 @@
       pagina: '/termos-concurso.html'
     },
     edital_25_saude: {
-      titulo: 'Concurso Público da Saúde do Município de IBGE 2026 - RO',
+      titulo: 'IBGE 2026 - Processo Seletivo Simplificado - Edital N.º 03/2026',
       sigla: 'PMPV-SAU',
-      orgao: 'IBGE de IBGE 2026 - RO',
+      orgao: 'IBGE 2026 - Processo Seletivo Simplificado',
       edital_opt: 'Edital nº 25/2026 - Saúde',
       edital_curto: 'Edital nº 25/2026',
-      orgao_edital: 'IBGE de IBGE 2026 - RO',
+      orgao_edital: 'IBGE 2026 - Processo Seletivo Simplificado',
       logo: '/assets/home/img1.webp',
       periodo: '13/10/26 10:00 - 16/11/26 23:59',
       dataProva: '13/12/2026 14:45:00',
