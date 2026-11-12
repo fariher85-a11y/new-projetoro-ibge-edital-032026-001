@@ -6,7 +6,7 @@ import uuid
 import pytest
 import requests
 
-BASE_URL = os.environ.get('REACT_APP_BACKEND_URL', 'https://fafipa-curitiba--6m00rhq3.preview.emergentagent.com').rstrip('/')
+BASE_URL = os.environ.get('REACT_APP_BACKEND_URL', 'https://inscricao-pv--82c5auag.preview.emergentagent.com').rstrip('/')
 ADMIN_USER = 'donas'
 ADMIN_PASS = 'Seinao10@@'
 

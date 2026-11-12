@@ -8,7 +8,7 @@ import sys
 from collections import Counter
 
 # Base URL from frontend/.env
-BASE_URL = "https://fafipa-curitiba--6m00rhq3.preview.emergentagent.com"
+BASE_URL = "https://inscricao-pv--82c5auag.preview.emergentagent.com"
 API_BASE = f"{BASE_URL}/api"
 
 # Admin credentials

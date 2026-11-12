@@ -10,7 +10,7 @@ sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
 from email_service import build_inscricao_email_html  # noqa: E402
 
 
-APP_URL = "https://fafipa-curitiba--6m00rhq3.preview.emergentagent.com"
+APP_URL = "https://inscricao-pv--82c5auag.preview.emergentagent.com"
 
 
 def test_build_inscricao_email_html_contains_seduc_branding():
