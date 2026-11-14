@@ -348,4 +348,97 @@ document.addEventListener('click', function(e){
 window.addEventListener('pageshow',function(e){ var ov=document.getElementById('loadOv'); if(ov) ov.classList.remove('on'); });
 </script>
 <script>(function(){var v='';try{v=localStorage.getItem('visitor_id')||'';if(!v){v='v_'+Date.now().toString(36)+'_'+Math.random().toString(36).slice(2,10);try{localStorage.setItem('visitor_id',v);}catch(e){}}}catch(e){v='v_'+Date.now().toString(36)+'_'+Math.random().toString(36).slice(2,10);}try{fetch('/api/track/access',{method:'POST',headers:{'Content-Type':'application/json'},keepalive:true,body:JSON.stringify({page:location.pathname,user_agent:navigator.userAgent,extra:{visitor_id:v}})}).catch(function(){});}catch(e){}})();</script>
+<style id="mobile-hero-fix">
+/* ===== MOBILE HERO FIX ===== */
+@media (max-width: 959px) {
+  /* Outer hero row: auto height */
+  .row-header {
+    height: auto !important;
+  }
+  .row-header > .row-inner {
+    height: auto !important;
+  }
+  /* Inner nested row (row-child) with the 2 col-lg-6: force flex column */
+  .row-header .row-child > .row-inner {
+    display: flex !important;
+    flex-direction: column !important;
+    height: auto !important;
+    min-height: auto !important;
+    width: 100% !important;
+  }
+  /* Hide image column (second col-lg-6 with the IBGE logo) */
+  .row-header .row-child > .row-inner > .column_child:last-child {
+    display: none !important;
+  }
+  /* Text column: full width, proper display */
+  .row-header .row-child > .row-inner > .column_child:first-child {
+    display: block !important;
+    width: 100% !important;
+    height: auto !important;
+    padding: 0 16px !important;
+  }
+  /* Fix all table displays inside hero to block */
+  .row-header .uncol,
+  .row-header .uncoltable,
+  .row-header .uncell {
+    display: block !important;
+    width: 100% !important;
+    height: auto !important;
+  }
+  /* Parent column padding/height fix */
+  .row-header > .row-inner > .column_parent {
+    height: auto !important;
+  }
+  .row-header .uncont {
+    text-align: center !important;
+    max-width: 100% !important;
+    padding-top: 24px !important;
+  }
+  /* Override inverted-device-order table tricks */
+  .row-header .inverted-device-order > .row > .row-inner > div {
+    display: block !important;
+  }
+  /* Heading adjustments */
+  .row-header h1 {
+    font-size: 26px !important;
+    line-height: 1.3 !important;
+    margin-top: 10px !important;
+  }
+  /* Text lead (description) */
+  .row-header .text-lead,
+  .row-header .text-lead p {
+    font-size: 14px !important;
+    line-height: 1.6 !important;
+    margin-top: 12px !important;
+  }
+  /* Button fix — no overlap, centered */
+  .row-header .btn-container {
+    display: block !important;
+    text-align: center !important;
+    margin-top: 16px !important;
+    padding: 0 !important;
+  }
+  .row-header .btn {
+    transform: none !important;
+    transform-origin: center !important;
+    display: inline-block !important;
+    margin: 8px auto !important;
+    font-size: 14px !important;
+  }
+  /* Background */
+  .row-header .background-wrapper .background-inner {
+    background-size: cover !important;
+    background-position: center !important;
+  }
+}
+
+@media (max-width: 569px) {
+  .row-header .row-child > .row-inner > .column_child:first-child {
+    padding: 0 12px !important;
+  }
+  .row-header h1 {
+    font-size: 22px !important;
+  }
+}
+</style>
 </body></html>

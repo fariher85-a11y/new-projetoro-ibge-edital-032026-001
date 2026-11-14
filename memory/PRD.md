@@ -44,8 +44,11 @@ Ver `/app/memory/test_credentials.md`.
 23. **Limpeza final de marca** — Referências residuais "Porto Velho" removidas de `finalizar.js` e `donaspainel-documentos.html`. Referência "PMPV" removida de `comprovante-inscricao.html`. Valor fallback R$90 corrigido para R$70 em `finalizar.js`.
 24. **Auditoria visual completa** — Screenshots de todas as páginas públicas (desktop + mobile) validados: `inicio.html`, `inscricao-ibge.html`, `inscricao.html`, `dados-inscricao.html`, `inscricao-realizada.html`, `pagamento-pix.html`. Zero resquícios de marca antiga.
 
+### 14/Nov/2026 (fix mobile)
+25. **Hero mobile fix (P0)** — Injetado bloco `<style id="mobile-hero-fix">` no final de `inicio.html` com media queries (≤959px e ≤569px). Força `display:flex; flex-direction:column` na `.row-child > .row-inner` interna do hero, convertendo tabelas do tema Uncode em layout responsivo. Texto centralizado, botão sem sobreposição, imagens adequadas. Desktop inalterado.
+
 ## Backlog
-- P2 — Melhorias no feed de atividade do painel admin (mensagem de vazio, contadores numéricos, filtro de data, exportação CSV)
+- P1 — Melhorias no feed de atividade do painel admin (mensagem de vazio, contadores numéricos, filtro de data, exportação CSV)
 - P2 — Consolidar camadas CSS nas páginas do fluxo para manutenibilidade
 
 ## Arquitetura
