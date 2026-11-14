@@ -1,0 +1,21 @@
+{
+  "summary": "Verified CSP duplicate-removal fix for homepage access tracking. inicio.html (file and served /) has exactly ONE CSP meta tag containing connect-src 'self'. Browser visit to / fired POST /api/track/access -> 200, no CSP violation for the fetch; new accesses docs with page='/' inserted in ibge_2026_db (count 1 -> 3). Admin /donaspainel (donas) dashboard shows kpi-acessos=3, funnel 'Acessos ao site'=3, live activity lists 'Novo acesso desktop'. Visiting admin panel did not increment accesses. Dedup (same visitor_id within 30min) and admin-path skip verified via pytest.",
+  "backend_issues": {"critical": [], "minor": []},
+  "frontend_issues": {
+    "ui_bugs": [],
+    "integration_issues": [],
+    "design_issues": []
+  },
+  "test_report_links": ["/app/backend/tests/test_access_tracking_csp.py", "/app/test_reports/pytest/pytest_results_iter90.xml"],
+  "action_items": [],
+  "critical_code_review_comments": [
+    "Homepage CSP script-src 'unsafe-inline' data: blocks Cloudflare-injected scripts (cloudflareinsights beacon, /cdn-cgi/challenge-platform). Harmless for tracking; if a Cloudflare bot challenge is ever on, add those origins.",
+    "Homepage never reaches networkidle (some connection stays open). This isn't a bug, but use wait_until='load' in automation."
+  ],
+  "updated_files": ["/app/backend/tests/test_access_tracking_csp.py"],
+  "success_rate": {"backend": "100%", "frontend": "100%"},
+  "seed_data_creation": "Browser visits added 2 real accesses docs (page='/') plus their access events, now shown in the dashboard. The pytest access doc (visitor_id TEST_v_*) and its event were deleted by id.",
+  "retest_needed": false,
+  "should_main_agent_self_test": false,
+  "context_for_next_testing_agent": "DB ibge_2026_db; collections accesses/events/admins. track/access dedups by visitor_id (30min), so clear localStorage for a new access. Run pytest without -p no:xdist (pytest.ini uses -n)."
+}
