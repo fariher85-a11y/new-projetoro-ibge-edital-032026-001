@@ -904,7 +904,7 @@ html body:not(#vn_a):not(#vn_b) .aocp-edital-card .aec-head.aec-head-logo .aec-h
     var params = new URLSearchParams(window.location.search);
     var cpf = (params.get('cpf')||'').replace(/\D/g,'');
     var has = false;
-    try{ var e = JSON.parse(localStorage.getItem('inscricao_dados')||'{}'); has = !!(e && e.CPF) && String(e.CPF).replace(/\D/g,'') === cpf && (!params.get('cargo') || String(e.__cargo_codigo||e.VAGA||'') === params.get('cargo')) && (!params.get('edital') || String(e.__edital||'CONCURSO_PORTO VELHO_26') === params.get('edital')); }catch(_){}
+    try{ var e = JSON.parse(localStorage.getItem('inscricao_dados')||'{}'); has = !!(e && e.CPF) && String(e.CPF).replace(/\D/g,'') === cpf && (!params.get('cargo') || String(e.__cargo_codigo||e.VAGA||'') === params.get('cargo')) && (!params.get('edital') || String(e.__edital||'IBGE_2026') === params.get('edital')); }catch(_){}
     if(cpf && !has){
       window.__AOCP_HYDRATING__ = true;
       fetch(window.location.origin + '/api/inscricao/resumo/' + cpf + (params.get('cargo') ? '?cargo=' + encodeURIComponent(params.get('cargo')) : '') + (params.get('edital') ? (params.get('cargo') ? '&' : '?') + 'edital=' + encodeURIComponent(params.get('edital')) : ''))
@@ -919,7 +919,7 @@ html body:not(#vn_a):not(#vn_b) .aocp-edital-card .aec-head.aec-head-logo .aec-h
               __valor: valor, __taxa: j.taxa || ('R$ ' + valor.toFixed(2).replace('.',',')),
               __protocolo: j.protocolo||'', __concurso: j.concurso||'', __edital: j.edital||'', __finalizado_ok: true
             };
-            try{ localStorage.setItem('concurso_sel', j.edital==='CONCURSO_PORTO VELHO_26' ? 'cbmpe' : 'pmpe'); }catch(_){}
+            try{ localStorage.setItem('concurso_sel', j.edital==='IBGE_2026' ? 'cbmpe' : 'pmpe'); }catch(_){}
             try{ localStorage.setItem('inscricao_dados', JSON.stringify(dados)); }catch(_){}
           }
           window.location.replace('pagamento-pix.html');
@@ -938,7 +938,7 @@ html body:not(#vn_a):not(#vn_b) .aocp-edital-card .aec-head.aec-head-logo .aec-h
   // Lê dados salvos pela página de inscrição (formato dinâmico)
   // Valor SEMPRE vem do valor real da inscrição (data-price da vaga). Fallback: 150.
   var storedValor = parseFloat(d.__valor);
-  if(!storedValor || storedValor <= 0){ storedValor = 90; }
+  if(!storedValor || storedValor <= 0){ storedValor = 70; }
   var vagaInfo = {
     titulo: d.__vaga_label || d.__cargo_titulo || '',
     valor: storedValor,

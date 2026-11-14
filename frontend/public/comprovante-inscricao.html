@@ -254,8 +254,8 @@
       extra: {
         cpf: (d.CPF||'').replace(/\D/g,''),
         nome: d.NOME || '',
-        concurso: certameKey || 'CONCURSO_PV',
-        edital: certameKey === 'edital_25_saude' ? 'PMPV_25' : (certameKey === 'edital_24_educacao' ? 'PMPV_24' : 'PMPV_26'),
+        concurso: certameKey || 'IBGE_2026',
+        edital: 'IBGE_03_2026',
         cargo_codigo: d.__cargo_codigo || d.VAGA || '',
         cargo_titulo: d.__cargo_titulo || (d.VAGA_LABEL||'').replace(/^\d+\s*-\s*/, '') || '',
         valor: valor,

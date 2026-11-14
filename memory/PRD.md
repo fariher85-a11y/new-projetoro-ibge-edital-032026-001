@@ -39,8 +39,12 @@ Ver `/app/memory/test_credentials.md`.
 20. **Dados de municípios locais** — `municipios-br.json` com todos os municípios brasileiros hospedado localmente (sem dependência de API externa do IBGE).
 21. **Backend atualizado** — Campos `uf_prova`, `area_trabalho`, `uf_trabalho` adicionados ao documento de inscrição.
 
+### 14/Nov/2026 (cont.)
+22. **Logo header corrigido (P0)** — Logo antigo IBGP em Base64 dentro do `parts.json` substituído por `/assets/cesgranrio-logo.png`. Header Cesgranrio correto em todas as páginas.
+23. **Limpeza final de marca** — Referências residuais "Porto Velho" removidas de `finalizar.js` e `donaspainel-documentos.html`. Referência "PMPV" removida de `comprovante-inscricao.html`. Valor fallback R$90 corrigido para R$70 em `finalizar.js`.
+24. **Auditoria visual completa** — Screenshots de todas as páginas públicas (desktop + mobile) validados: `inicio.html`, `inscricao-ibge.html`, `inscricao.html`, `dados-inscricao.html`, `inscricao-realizada.html`, `pagamento-pix.html`. Zero resquícios de marca antiga.
+
 ## Backlog
-- P2 — Revisar textos residuais em páginas como `minhas-inscricoes.html`, `edital-24.html`
 - P2 — Melhorias no feed de atividade do painel admin (mensagem de vazio, contadores numéricos, filtro de data, exportação CSV)
 - P2 — Consolidar camadas CSS nas páginas do fluxo para manutenibilidade
 

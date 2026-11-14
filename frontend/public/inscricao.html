@@ -1249,7 +1249,7 @@ function __handleDocTipo(v){
           cpf: data.CPF || '',
           email: data.EMAIL || '',
           concurso: CONCURSO,
-          edital: ((window.SEAD_CONCURSO && SEAD_CONCURSO.key === 'cbmpe') ? 'CONCURSO_PORTO VELHO_26' : 'CONCURSO_PORTO VELHO_26'),
+          edital: ((window.SEAD_CONCURSO && SEAD_CONCURSO.key === 'cbmpe') ? 'IBGE_2026' : 'IBGE_2026'),
           stage: 'cadastro',
           visitor_id: window.__vid(),
           form_data: form_data
@@ -1312,7 +1312,7 @@ function __handleDocTipo(v){
       try{
         var ctx = Object.assign({}, data, {
           __concurso: CONCURSO,
-          __edital: ((window.SEAD_CONCURSO && SEAD_CONCURSO.key === 'cbmpe') ? 'CONCURSO_PORTO VELHO_26' : 'CONCURSO_PORTO VELHO_26'),
+          __edital: ((window.SEAD_CONCURSO && SEAD_CONCURSO.key === 'cbmpe') ? 'IBGE_2026' : 'IBGE_2026'),
           __cargo_codigo: vagaInfo.codigo,
           __cargo_titulo: vagaInfo.titulo,
           __taxa: vagaInfo.taxa,

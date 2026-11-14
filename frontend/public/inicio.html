@@ -303,6 +303,36 @@ R$ <strong>70,00</strong></p>
 #loadOv.on{display:flex}
 #loadOv .sp{width:56px;height:56px;border:6px solid #e5e5e5;border-top-color:#005ca9;border-radius:50%;animation:spin .8s linear infinite}
 @keyframes spin{to{transform:rotate(360deg)}}
+
+/* === Mobile Fixes === */
+@media (max-width: 768px) {
+  html, body { overflow-x: hidden !important; max-width: 100vw !important; }
+  .box-wrapper, .box-container, .main-wrapper, .main-container,
+  .sections-container, .page-wrapper, .page-body,
+  .row, .row-inner, .row-container, .row-parent,
+  .uncol, .uncoltable, .uncell, .uncont,
+  .post-wrapper, .post-body, .post-content,
+  [class*="col-lg-"] {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100vw !important;
+    table-layout: auto !important;
+    overflow-x: hidden !important;
+  }
+  .row-background .background-wrapper .background-inner {
+    background-size: cover !important;
+    background-position: center !important;
+  }
+  .double-block-padding { padding: 24px 16px !important; }
+  .main-container .row-container .row-parent { padding: 16px !important; }
+  .empty-space.empty-double { padding-top: 24px !important; }
+  .penta-top-padding, .penta-bottom-padding { padding-top: 32px !important; padding-bottom: 32px !important; }
+  .btn:not(input) { transform: none !important; }
+  h1 { font-size: 24px !important; line-height: 1.3 !important; }
+  .h2, h2 { font-size: 18px !important; line-height: 1.4 !important; }
+  p, li, label { font-size: 15px !important; line-height: 1.6 !important; }
+  img { max-width: 100% !important; height: auto !important; }
+}
 </style>
 <div id="loadOv"><div class="sp"></div></div>
 <script>
