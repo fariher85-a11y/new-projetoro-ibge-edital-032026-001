@@ -40,7 +40,20 @@
     max-width: 55% !important;
     margin: 0 auto !important;
   }
-  /* Text column */
+  /* Text column - use flex to reorder children: heading, button, description */
+  .row-header .row-child > .row-inner > .column_child:first-child .uncont {
+    display: flex !important;
+    flex-direction: column !important;
+  }
+  .row-header .row-child > .row-inner > .column_child:first-child .uncont > .vc_custom_heading_wrap {
+    order: 1 !important;
+  }
+  .row-header .row-child > .row-inner > .column_child:first-child .uncont > .btn-container {
+    order: 2 !important;
+  }
+  .row-header .row-child > .row-inner > .column_child:first-child .uncont > .uncode_text_column {
+    order: 3 !important;
+  }
   .row-header .row-child > .row-inner > .column_child:first-child {
     text-align: left !important;
     padding: 0 24px !important;
@@ -48,7 +61,8 @@
   .btn-container {
     display: block !important;
     text-align: left !important;
-    margin-top: 16px !important;
+    margin-top: 8px !important;
+    margin-bottom: 4px !important;
     padding: 0 !important;
   }
   .row-header .btn {
@@ -57,7 +71,7 @@
     margin: 8px 0 !important;
     position: static !important;
   }
-  .row-header h1 { font-size: 28px !important; line-height: 1.2 !important; margin-bottom: 12px !important; }
+  .row-header h1 { font-size: 28px !important; line-height: 1.2 !important; margin-bottom: 4px !important; }
 }
 @media (max-width: 569px) {
   .row-header .row-child > .row-inner > .column_child:first-child { padding: 0 16px !important; }
