@@ -45,8 +45,9 @@ Ver `/app/memory/test_credentials.md`.
 24. **Auditoria visual completa** — Screenshots de todas as páginas públicas (desktop + mobile) validados: `inicio.html`, `inscricao-ibge.html`, `inscricao.html`, `dados-inscricao.html`, `inscricao-realizada.html`, `pagamento-pix.html`. Zero resquícios de marca antiga.
 
 ### 14/Nov/2026 (fix mobile)
-25. **Hero mobile fix (P0)** — Injetado bloco `<style id="mobile-hero-fix">` no `<head>` (linha 17) de `inicio.html` com media queries (≤959px e ≤569px). Força `display:flex; flex-direction:column` na `.row-child > .row-inner` interna do hero, convertendo tabelas do tema Uncode em layout responsivo. Texto centralizado, botão sem sobreposição, imagens adequadas. Desktop inalterado.
+25. **Hero mobile fix (P0)** — Injetado bloco `<style id="mobile-hero-fix">` no `<head>` (linha 17) de `inicio.html` com media queries (≤959px e ≤569px). Força `display:flex; flex-direction:column-reverse` na `.row-child > .row-inner` para mostrar logo IBGE acima do título. Texto alinhado à esquerda, botão sem sobreposição, layout idêntico ao site oficial cesgranrio.org.br. Desktop inalterado.
 26. **FOUC fix (P0)** — CSS mobile movido do final do arquivo para o `<head>`, eliminando Flash of Unstyled Content reportado pelo usuário. Estilos carregam antes do conteúdo renderizar.
+27. **Logo IBGE visível no mobile (P0)** — Removida regra `display:none` que escondia a coluna da logo IBGE. Agora exibe logo centralizada acima do título "IBGE 2026", igual ao site oficial.
 
 ## Backlog
 - P1 — Melhorias no feed de atividade do painel admin (mensagem de vazio, contadores numéricos, filtro de data, exportação CSV)
