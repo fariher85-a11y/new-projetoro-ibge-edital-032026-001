@@ -27,11 +27,22 @@ Ver `/app/memory/test_credentials.md`.
 10. **Links externos removidos** — Todos os `href` externos neutralizados
 11. **Integrações preservadas** — CSP, tracking `/api/track/access`, bfcache handler, loading overlay
 12. **Bug fix: formulário inscrição** — Corrigido `.bgConcurso` sendo escondido por CSS/JS injetado, formulário agora visível
+13. **Rebranding do Painel Admin** — `/donaspainel` renomeado para "IBGE 2026" em todos os textos e backend
+14. **E-mails transacionais** — 3 templates (Boas-vindas, Sucesso, PIX) atualizados para IBGE 2026 / Cesgranrio
+15. **Resend configurado** — Chave API do Resend injetada via ferramenta de segredos
+16. **CSP corrigida** — Meta tag duplicada removida para permitir rastreamento na home
+
+### 14/Nov/2026
+17. **Auto-seleção de vagas (P0)** — `concurso.js` completamente reescrito: 1 Edital (IBGE 2026), 1 Escolaridade (Fundamental), 1 Cargo (Recenseador R$70,00). Todos os campos auto-selecionados ao carregar a página. Zero cargos antigos.
+18. **Local de Prova — UF → Município** — Novo seletor com dropdown de UF (27 estados) + Município carregado de JSON local (5.571 municípios IBGE). Substitui o campo fixo "Porto Velho".
+19. **Área de Trabalho — UF → Município** — Novo campo "Área de Trabalho" com o mesmo padrão UF → Município sede. Ambos os pares funcionam independentemente.
+20. **Dados de municípios locais** — `municipios-br.json` com todos os municípios brasileiros hospedado localmente (sem dependência de API externa do IBGE).
+21. **Backend atualizado** — Campos `uf_prova`, `area_trabalho`, `uf_trabalho` adicionados ao documento de inscrição.
 
 ## Backlog
-- P1 — Verificar CSP na inicio.html para tracking (connect-src pode estar faltando)
+- P2 — Revisar textos residuais em páginas como `minhas-inscricoes.html`, `edital-24.html`
+- P2 — Melhorias no feed de atividade do painel admin (mensagem de vazio, contadores numéricos, filtro de data, exportação CSV)
 - P2 — Consolidar camadas CSS nas páginas do fluxo para manutenibilidade
-- P2 — Melhorias no painel admin (renomear para IBGE 2026)
 
 ## Arquitetura
 ```
@@ -39,7 +50,8 @@ Ver `/app/memory/test_credentials.md`.
 ├── backend/
 │   ├── .env (DB_NAME=ibge_2026_db)
 │   ├── server.py
-│   └── admin_routes.py
+│   ├── admin_routes.py
+│   └── email_service.py
 ├── frontend/
 │   ├── .env
 │   ├── craco.config.js
@@ -47,21 +59,19 @@ Ver `/app/memory/test_credentials.md`.
 │       ├── inicio.html
 │       ├── inscricao-ibge.html
 │       ├── termos-concurso.html
-│       ├── inscricao.html
-│       ├── dados-inscricao.html
+│       ├── dados-inscricao.html   (form principal com UF→Município)
+│       ├── inscricao.html         (dados pessoais)
 │       ├── confirmacao.html
 │       ├── pagamento-pix.html
 │       ├── inscricao-realizada.html
 │       ├── comprovante-inscricao.html
 │       ├── assets/
-│       │   ├── cesgranrio-logo.png
-│       │   ├── cesgranrio-footer-logo.png
 │       │   ├── cesgranrio-shared.css
 │       │   └── home/img1.webp (logo IBGE)
-│       ├── seduc/concurso.js
-│       ├── idcap/
-│       │   ├── chrome.css
-│       │   └── parts.json
+│       ├── seduc/
+│       │   ├── concurso.js          (auto-seleção de vagas)
+│       │   ├── uf-municipios.js     (seletor UF→Município)
+│       │   └── municipios-br.json   (5.571 municípios)
 │       └── donaspainel/
 │           ├── index.html
 │           └── admin-extras.js

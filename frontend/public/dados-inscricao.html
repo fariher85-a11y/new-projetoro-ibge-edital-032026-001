@@ -431,7 +431,7 @@ input[type="checkbox"]:checked { accent-color: #42517A !important; }
   </ul>
 </div>
 
-<link href="/seduc/seduc-theme.css?v=11" rel="stylesheet"/><script src="/seduc/concurso.js?v=10"></script><script src="/seduc/seduc-theme.js?v=47"></script><style id="__fgv_layout">
+<link href="/seduc/seduc-theme.css?v=11" rel="stylesheet"/><script src="/seduc/uf-municipios.js?v=1"></script><script src="/seduc/concurso.js?v=11"></script><script src="/seduc/seduc-theme.js?v=47"></script><style id="__fgv_layout">
 html,body{margin:0 !important;padding:0 !important;background:#fff !important}
 #TopoMobile, #TopMenu, #Topo, .bgConcurso, #Rodape, #__page_loader { display:none !important; }
 .Miolo { max-width:1280px !important; margin:30px auto !important; padding:0 24px !important; box-sizing:border-box !important; background:transparent !important; border:0 !important; box-shadow:none !important; min-height:auto !important; left:auto !important; position:static !important; width:100% !important; }
@@ -832,24 +832,79 @@ h2.tituloPagina span { border-bottom:0 !important; text-indent:0 !important; pad
 <script>(function(){function f(){var v=document.getElementById('VAGA');if(v&&v.querySelector('option[value="1"]')){v.value='1';v.dispatchEvent(new Event('change',{bubbles:true}));}}if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',f);else f();})();</script>
 </fieldset>
 <fieldset id="fs-prova-local">
-<label class="description">Cidade de Aplicação da Prova</label>
-<input id="UF_PROVA" name="UF_PROVA" type="hidden" value="PE"/>
-<div class="fgv-field">
-<label><span class="error">*</span> Cidade</label>
-<select class="select" data-testid="select-municipio-prova" id="MUNICIPIO_PROVA" name="MUNICIPIO_PROVA" required="">
-<option selected="" value="">Selecione</option>
+<label class="description">Local de Prova</label>
+<div style="display:flex;gap:16px;flex-wrap:wrap">
+<div class="fgv-field" style="flex:0 0 160px;min-width:120px">
+<label><span class="error">*</span> UF</label>
+<select class="select" data-testid="select-uf-prova" id="UF_PROVA" name="UF_PROVA" required="">
+<option value="">Selecione</option>
 </select>
 </div>
+<div class="fgv-field" style="flex:1;min-width:200px">
+<label><span class="error">*</span> Município/Localidade</label>
+<select class="select" data-testid="select-municipio-prova" id="MUNICIPIO_PROVA" name="MUNICIPIO_PROVA" required="">
+<option value="">Selecione o Estado primeiro</option>
+</select>
+</div>
+</div>
+</fieldset>
+<fieldset id="fs-area-trabalho">
+<label class="description">Área de Trabalho</label>
+<div style="display:flex;gap:16px;flex-wrap:wrap">
+<div class="fgv-field" style="flex:0 0 160px;min-width:120px">
+<label><span class="error">*</span> UF</label>
+<select class="select" data-testid="select-uf-trabalho" id="UF_TRABALHO" name="UF_TRABALHO" required="">
+<option value="">Selecione</option>
+</select>
+</div>
+<div class="fgv-field" style="flex:1;min-width:200px">
+<label><span class="error">*</span> Área de Trabalho (Município sede)</label>
+<select class="select" data-testid="select-municipio-trabalho" id="MUNICIPIO_TRABALHO" name="MUNICIPIO_TRABALHO" required="">
+<option value="">Selecione o Estado primeiro</option>
+</select>
+</div>
+</div>
+</fieldset>
 <script>
 (function(){
- document.addEventListener('DOMContentLoaded', function(){
-   var uf = document.getElementById('UF_PROVA'), mp = document.getElementById('MUNICIPIO_PROVA');
-   function syncUf(){ if(uf) uf.value = 'AP'; }
-   if(mp){ mp.addEventListener('change', syncUf); syncUf(); setTimeout(syncUf, 300); setTimeout(syncUf, 1200); }
- });
+  function init(){
+    if (!window.UF_MUNICIPIOS) return;
+    var ufP = document.getElementById('UF_PROVA');
+    var munP = document.getElementById('MUNICIPIO_PROVA');
+    if (ufP && munP) UF_MUNICIPIOS.bindPair(ufP, munP);
+    var ufT = document.getElementById('UF_TRABALHO');
+    var munT = document.getElementById('MUNICIPIO_TRABALHO');
+    if (ufT && munT) UF_MUNICIPIOS.bindPair(ufT, munT);
+
+    /* Restauração assíncrona: após o fetch de municípios, re-aplica valores salvos */
+    try {
+      var saved = JSON.parse(localStorage.getItem('inscricao_dados') || 'null');
+      if (saved) {
+        function restorePair(ufEl, munEl, ufKey, munKey){
+          if (!saved[ufKey] || !ufEl) return;
+          ufEl.value = saved[ufKey];
+          ufEl.dispatchEvent(new Event('change', {bubbles:true}));
+          /* Aguarda o fetch completar e tenta setar o município */
+          var tries = 0;
+          var iv = setInterval(function(){
+            tries++;
+            if (munEl.querySelector('option[value="' + (saved[munKey]||'') + '"]')) {
+              munEl.value = saved[munKey];
+              munEl.dispatchEvent(new Event('change', {bubbles:true}));
+              clearInterval(iv);
+            }
+            if (tries > 30) clearInterval(iv);
+          }, 200);
+        }
+        restorePair(ufP, munP, 'UF_PROVA', 'MUNICIPIO_PROVA');
+        restorePair(ufT, munT, 'UF_TRABALHO', 'MUNICIPIO_TRABALHO');
+      }
+    } catch(e){}
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+  else init();
 })();
 </script>
-</fieldset>
 <fieldset id="fs-destinacao-vagas">
 <label class="description" style="font-weight:600;color:#1f2937;margin-bottom:10px;">Destinação de Vagas</label>
 <ul class="choice-list" style="list-style:none;padding:0;margin:0">
