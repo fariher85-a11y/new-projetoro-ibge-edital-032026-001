@@ -80,6 +80,64 @@
   font-style: italic !important;
 }
 
+/* ===== HAMBURGER & MOBILE MENU ===== */
+.csg-hamburger-btn {
+  display: none;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 40px !important;
+  height: 40px !important;
+  background: none !important;
+  border: 2px solid #4e5f8f !important;
+  border-radius: 6px !important;
+  cursor: pointer !important;
+  padding: 0 !important;
+  position: relative !important;
+}
+.csg-hamburger-btn svg {
+  width: 22px !important;
+  height: 22px !important;
+  stroke: #4e5f8f !important;
+}
+.csg-mobile-menu {
+  display: none;
+  position: absolute !important;
+  top: 100% !important;
+  right: 0 !important;
+  background: #fff !important;
+  border: 1px solid #e0e0e0 !important;
+  border-radius: 8px !important;
+  box-shadow: 0 8px 24px rgba(0,0,0,.12) !important;
+  min-width: 200px !important;
+  z-index: 10001 !important;
+  padding: 8px 0 !important;
+  margin-top: 8px !important;
+}
+.csg-mobile-menu.open {
+  display: block !important;
+}
+.csg-mobile-menu a {
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+  padding: 12px 18px !important;
+  color: #4e5f8f !important;
+  text-decoration: none !important;
+  font-weight: 600 !important;
+  font-size: 14px !important;
+  transition: background .15s !important;
+  border-bottom: none !important;
+}
+.csg-mobile-menu a:hover {
+  background: #f0f2f7 !important;
+}
+.csg-mobile-menu a svg {
+  width: 18px !important;
+  height: 18px !important;
+  stroke: #4e5f8f !important;
+  flex-shrink: 0 !important;
+}
+
 /* ===== MOBILE ===== */
 @media (max-width: 768px) {
   .csg-header {
@@ -95,9 +153,18 @@
   .csg-header-nav a:not(.csg-btn) {
     display: none !important;
   }
+  .csg-mobile-menu a,
+  .csg-header-nav .csg-mobile-menu a {
+    display: flex !important;
+  }
   .csg-header-nav .csg-btn {
-    font-size: 12px !important;
-    padding: 6px 12px !important;
+    display: none !important;
+  }
+  .csg-hamburger-btn {
+    display: flex !important;
+  }
+  .csg-header, .csg-header *, .csg-header-nav, .csg-header-nav > li {
+    overflow: visible !important;
   }
   .csg-footer {
     padding: 10px 12px !important;
