@@ -1,5 +1,5 @@
 /* ============================================================
-   Painel Admin — extras (Concurso Porto Velho)
+   Painel Admin — extras (IBGE 2026)
    Adiciona um botão "Limpar Cadastros" na página /donaspainel/cadastro
    sem precisar mexer no build React.
    ============================================================ */

